@@ -10,8 +10,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int contador = 0; //tiene que ser una propiedad del objeto para que funcione
+  //definimos la varible contador
+  //tiene que ser propiedad del objeto para que funcione
+  int contador = 0;
 
+  //definimos los metodos que usaremos
   void incrementar() {
     contador++;
     setState(() {});
@@ -33,7 +36,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 62, 185, 216),
+
       appBar: AppBar(title: Text('Contador'), elevation: 10.0),
+
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      //añadimos un widget -> boton en el centro
+      //añadimos un widget row que contendra los botones
+      //pasamos como parametro las funciones definidas antes
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: customFloatingActionButton(
         incrementarFn: incrementar,
@@ -55,7 +61,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+//hemos extraido el widget
 class customFloatingActionButton extends StatelessWidget {
+  //declaramos las funciones que pasaremos por parametro
+  //para asi poder usarlos dentro de esta clase
   final Function incrementarFn;
   final Function decrementarFn;
   final Function resetFn;
